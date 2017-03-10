@@ -14,7 +14,7 @@
               Visit Project
             </div>
             <div class="btn outline" onclick="{ actionDetails }">
-              Do something
+              See Details
             </div>
           </div>
         </div>
