@@ -21,7 +21,7 @@
    });
 
    open () {
-     //document.body.classList.add('no-scroll');
+     document.body.classList.add('no-scroll');
      document.querySelector('main').classList.add('off');
      this.opened = true;
      this.update();
@@ -34,7 +34,7 @@
      document.querySelector('main').classList.remove('off');
      this.opened = false;
      this.update();
-     //document.body.classList.remove('no-scroll');
+     document.body.classList.remove('no-scroll');
    }
  </script>
 </comp-sidebar>
