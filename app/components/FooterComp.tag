@@ -6,9 +6,9 @@
       </div>
       <nav class="menu">
         <ul>
-          <li><a href="#">Submit a project</a></li>
-          <li><a href="#">About Peercoin</a></li>
-          <li><a href="#">PeerAssets</a></li>
+          <li><a href="https://github.com/kazzkiq/showcase">Github Project</a></li>
+          <li><a href="https://github.com/kazzkiq/showcase/wiki">Documentation</a></li>
+          <li><a href="https://github.com/kazzkiq/showcase/graphs/contributors">Author</a></li>
         </ul>
       </nav>
     </div>

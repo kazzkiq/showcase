@@ -1,8 +1,8 @@
 <comp-main>
   <comp-topbar></comp-topbar>
   <div class="hero">
-    <h1>Welcome to our showcase of projects, powered by <span class="primary">Peercoin</span> and <span class="primary">PeerAssets</span>.</h1>
-    <h2>You can browse betwen projects, or <span class="primary">submit</span> your own.</h2>
+    <h1>Welcome to Showcase! The simplest way for <span class="primary">building showcases</span> in a blink.</h1>
+    <h2>You can check some examples of showcases in our showcase bellow. Pretty Inception, <em>eh</em>?</h2>
   </div>
   <comp-cards></comp-cards>
 </comp-main>
