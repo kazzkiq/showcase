@@ -17,6 +17,11 @@ html, body {
 body {
   background: #fff;
   font-size: 1.5rem;
+
+  // Sticky footer
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 a {
@@ -27,6 +32,10 @@ a {
   &:hover {
     color: darken($primary-color, 20);
   }
+}
+
+main {
+  flex: 1;
 }
 
 .primary {
