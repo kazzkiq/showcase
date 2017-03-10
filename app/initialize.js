@@ -2,6 +2,7 @@ import { MainComp } from './components/MainComp';
 import { TopBarComp } from './components/TopBarComp';
 import { CardsComp } from './components/CardsComp';
 import { FooterComp } from './components/FooterComp';
+import { SideBarComp } from './components/SideBarComp';
 
 document.addEventListener('DOMContentLoaded', init);
 
