@@ -13,7 +13,7 @@
             <div class="btn">
               Visit Project
             </div>
-            <div class="btn outline">
+            <div class="btn outline" onclick="{ actionDetails }">
               Do something
             </div>
           </div>
@@ -26,7 +26,9 @@
       {
         name: 'Project 1',
         description: 'This is a project talking about some cool stuff, like in koolaid.',
-        imageUrl: ''
+        descriptionFull: 'This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid.',
+        imageUrl: '',
+        link: 'http://google.com/'
       },
       {
         name: 'Project 2',
@@ -64,5 +66,16 @@
         imageUrl: ''
       }
     ]
+
+    /*
+     * Modify your details action here
+     */
+    actionDetails (e) {
+      const item = e.item;
+      
+      let comp = document.createElement('COMP-SIDEBAR');
+      document.body.append(comp);
+      riot.mount(comp, item);
+    }
   </script>
 </comp-cards>
