@@ -3,7 +3,8 @@ module.exports = {
   npm: {
     globals: {
       riot: 'riot',
-      route: 'riot-route'
+      route: 'riot-route',
+      ajax: '@fdaciuk/ajax'
     }
   },
   files: {

@@ -22,50 +22,43 @@
     </div>
   </div>
   <script>
-    this.cards = [
-      {
-        name: 'Project 1',
-        description: 'This is a project talking about some cool stuff, like in koolaid.',
-        descriptionFull: 'This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid.',
-        imageUrl: '',
-        link: 'http://google.com/'
-      },
-      {
-        name: 'Project 2',
-        description: 'This is a project talking about some cool stuff, like in koolaid.',
-        imageUrl: ''
-      },
-      {
-        name: 'Project 3',
-        description: 'This is a project talking about some cool stuff, like in koolaid.',
-        imageUrl: ''
-      },
-      {
-        name: 'Project 4',
-        description: 'This is a project talking about some cool stuff, like in koolaid.',
-        imageUrl: ''
-      },
-      {
-        name: 'Project 5',
-        description: 'This is a project talking about some cool stuff, like in koolaid.',
-        imageUrl: ''
-      },
-      {
-        name: 'Project 6',
-        description: 'This is a project talking about some cool stuff, like in koolaid.',
-        imageUrl: ''
-      },
-      {
-        name: 'Project 7',
-        description: 'This is a project talking about some cool stuff, like in koolaid.',
-        imageUrl: ''
-      },
-      {
-        name: 'Project 8',
-        description: 'This is a project talking about some cool stuff, like in koolaid.',
-        imageUrl: ''
+    this.cards = [];
+
+    this.on('mount', () => {
+      this.fetchCardsData();
+    });
+
+    createCardObj () {
+      return {
+        name: null,
+        description: null,
+        descriptionFull: null,
+        imageUrl: null,
       }
-    ]
+    }
+
+    /*
+     * Modify your JSON AJAX URL and object here
+     */
+    fetchCardsData () {
+      const API_PATH = '/sample.json';
+      ajax().get(API_PATH).then((res, xhr) => {
+        
+        res.forEach((current) => {
+          let card = this.createCardObj();
+
+          // This is where you bind your objects fetched from JSON
+          card.name = current.name;
+          card.description = current.description;
+          card.descriptionFull = current.descriptionFull;
+          card.imageUrl = current.imageUrl;
+
+          this.cards.push(card);
+        });
+
+        this.update();
+      });
+    }
 
     /*
      * Modify your details action here
