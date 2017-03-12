@@ -44,23 +44,23 @@
 
     /*
      * Infinite Scroll function
+     * 
+     * If you change anything bellow, remember to chance CSS to
+     * reflect same height and items per line.
      */
      onscroll(e) {
       this.cardsCompTop = this.refs.comp.getBoundingClientRect().top;
-      var itemheight  = 345  // Height of item
-      var chunksize   = 4    // Number of rows to render (each row defaults to 4 items)
-      var itemsPerRow = 4
+      var itemheight  = 345;  // Height of item
+      var chunksize   = 4;    // Number of rows to render (each row defaults to 4 items)
+      var itemsPerRow = 4;    // Number of items per chunk row
       var chunk       = Math.floor(window.scrollY / (chunksize * itemheight * 0.95));
 
-      console.log(chunksize * (chunk + 1));
-
+      // Hit end of the current chunk, then load more items
       if(chunk > (this.lastchunk || 0)) {
-        console.log('end of chunk')
         this.displayCards  = this.cards.slice(0, (chunksize * itemsPerRow) * (chunk + 1))
         this.lastchunk  = chunk
         this.update();
       } else {
-        //console.log('no end of chunk')
         e.preventUpdate = true
       }
     }
