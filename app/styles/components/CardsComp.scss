@@ -5,6 +5,12 @@
   background: $cards-bg;
   margin-top: 3rem;
   padding: 1rem 0;
+  position: relative;
+
+  > .search {
+    //position: absolute;
+    display: none;
+  }
 
   .cards-list {
     display: flex;
