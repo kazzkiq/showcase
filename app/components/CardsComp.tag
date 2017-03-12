@@ -50,7 +50,7 @@
      */
      onscroll(e) {
       this.cardsCompTop = this.refs.comp.getBoundingClientRect().top;
-      var itemheight  = 345;  // Height of item
+      var itemheight  = 300 - (300 / 5);  // Height of item (keep 20% smaller for scroll to happen)
       var chunksize   = 4;    // Number of rows to render (each row defaults to 4 items)
       var itemsPerRow = 4;    // Number of items per chunk row
       var chunk       = Math.floor(window.scrollY / (chunksize * itemheight * 0.95));
