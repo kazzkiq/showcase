@@ -1,8 +1,6 @@
 <comp-cards>
   <div class="CardsComp" ref="comp">
-    <div class="search">
-      <input type="text">
-    </div>
+    <comp-search ref="search"></comp-search>
     <div class="container">
       <div class="cards-list">
         <div class="card" each="{ displayCards }">
@@ -39,6 +37,7 @@
         description: null,
         descriptionFull: null,
         imageUrl: null,
+        tags: []
       }
     }
 
@@ -49,6 +48,10 @@
      * reflect same height and items per line.
      */
      onscroll(e) {
+      if(this.isFilterActive) {
+        return;
+      }
+
       this.cardsCompTop = this.refs.comp.getBoundingClientRect().top;
       var itemheight  = 300 - (300 / 5);  // Height of item (keep 20% smaller for scroll to happen)
       var chunksize   = 4;    // Number of rows to render (each row defaults to 4 items)
@@ -81,6 +84,7 @@
           card.description = current.description;
           card.descriptionFull = current.descriptionFull;
           card.imageUrl = current.imageUrl;
+          card.tags = current.tags || [];
 
           this.cards.push(card);
         });

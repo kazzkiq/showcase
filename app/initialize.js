@@ -3,6 +3,7 @@ import { TopBarComp } from './components/TopBarComp';
 import { CardsComp } from './components/CardsComp';
 import { FooterComp } from './components/FooterComp';
 import { SideBarComp } from './components/SideBarComp';
+import { SearchComp } from './components/SearchComp';
 
 document.addEventListener('DOMContentLoaded', init);
 
