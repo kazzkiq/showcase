@@ -37,6 +37,7 @@
         description: null,
         descriptionFull: null,
         imageUrl: null,
+        link: null,
         tags: []
       }
     }
@@ -84,6 +85,7 @@
           card.description = current.description;
           card.descriptionFull = current.descriptionFull;
           card.imageUrl = current.imageUrl;
+          card.link = current.link;
           card.tags = current.tags || [];
 
           this.cards.push(card);
