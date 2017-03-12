@@ -5,7 +5,7 @@
       <h1 class="title">{ opts.name }</h1>
       <div class="description">{ opts.descriptionFull || opts.description }</div>
       <hr>
-      <virtual if="{ opts.tags }">
+      <virtual if="{ opts.tags.length > 0 }">
       <div class="description">{ opts.tags.join(', ') }</div>
       <hr>
       </virtual>
