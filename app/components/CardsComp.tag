@@ -25,6 +25,7 @@
   <script>
     this.cards = [];
     this.displayCards = [];
+    this.isFilterActive = true;
 
     this.on('mount', () => {
       this.fetchCardsData();
@@ -49,7 +50,8 @@
      * reflect same height and items per line.
      */
      onscroll(e) {
-      if(this.isFilterActive) {
+       console.log(this.isFilterActive);
+      if(!this.isFilterActive) {
         return;
       }
 

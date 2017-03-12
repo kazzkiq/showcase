@@ -12,10 +12,10 @@
       let filteredCards;
 
       if(value.length < 1) {
-        console.log('oe')
+        this.parent.lastchunk = 0;
         this.parent.displayCards = this.parent.cards.slice(0, 16);
+        this.parent.isFilterActive = true;
         this.parent.update();
-        this.parent.isFilterActive = false;
         return;
       }
       
@@ -31,7 +31,7 @@
         }
       });
       
-      this.parent.isFilterActive = true;
+      this.parent.isFilterActive = false;
       this.parent.displayCards = filteredCards;
       this.parent.update();
       
