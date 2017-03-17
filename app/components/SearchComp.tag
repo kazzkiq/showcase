@@ -11,6 +11,7 @@
       let value = input.value;
       let filteredCards;
 
+      // If input is empty, reset cards and stop filtering
       if(value.length < 1) {
         this.parent.lastchunk = 0;
         this.parent.displayCards = this.parent.cards.slice(0, 16);
@@ -18,9 +19,8 @@
         this.parent.update();
         return;
       }
-      
-      console.log(this.cards, 1);
 
+      // Else, start filtering content
       filteredCards = this.cards.filter((card) => {
         card.tags = card.tags || []
 

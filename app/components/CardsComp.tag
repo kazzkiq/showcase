@@ -30,9 +30,16 @@
 
     this.on('mount', () => {
       this.fetchCardsData();
-      window.onscroll = this.onscroll
+      window.onscroll = this.onscroll;
     });
 
+
+    /*
+     * Object responsible for creating card objects
+     * Every object from JSON must pass its values to
+     * this object.
+     * See fetchCardsData() for details.
+     */
     createCardObj () {
       return {
         name: null,
@@ -43,6 +50,7 @@
         tags: []
       }
     }
+
 
     /*
      * Infinite Scroll function
@@ -57,18 +65,18 @@
       }
 
       this.cardsCompTop = this.refs.comp.getBoundingClientRect().top;
-      var itemheight  = 300 - (300 / 5);  // Height of item (keep 20% smaller for scroll to happen)
-      var chunksize   = 4;    // Number of rows to render (each row defaults to 4 items)
-      var itemsPerRow = 4;    // Number of items per chunk row
-      var chunk       = Math.floor(window.scrollY / (chunksize * itemheight * 0.95));
+      var itemheight    = 300 - (300 / 5);  // Height of item (keep 20% smaller for scroll to happen)
+      var chunksize     = 4;    // Number of rows to render (each row defaults to 4 items)
+      var itemsPerRow   = 4;    // Number of items per chunk row
+      var chunk         = Math.floor(window.scrollY / (chunksize * itemheight * 0.95));
 
       // Hit end of the current chunk, then load more items
       if(chunk > (this.lastchunk || 0)) {
-        this.displayCards  = this.cards.slice(0, (chunksize * itemsPerRow) * (chunk + 1))
-        this.lastchunk  = chunk
+        this.displayCards  = this.cards.slice(0, (chunksize * itemsPerRow) * (chunk + 1));
+        this.lastchunk     = chunk;
         this.update();
       } else {
-        e.preventUpdate = true
+        e.preventUpdate    = true;
       }
     }
 
@@ -77,7 +85,9 @@
      * Modify your JSON AJAX URL and object here
      */
     fetchCardsData () {
-      const API_PATH = '/sample.json';
+      // URL responsible for cards data
+      const API_PATH = this.parent.opts.cardsJsonUrl;
+
       ajax().get(API_PATH).then((res, xhr) => {
         
         res.forEach((current) => {
@@ -91,24 +101,29 @@
           card.link = current.link;
           card.tags = current.tags || [];
 
+          // Push new card object to array of cards
           this.cards.push(card);
         });
 
+
+        // Show only the first 16 cards (and let Infinite Scroll show others later)
         this.displayCards = this.cards.slice(0, 16);
 
+        // Update component so it reflect the objects changes
         this.update();
       });
     }
 
     /*
-     * Modify your details action here
+     * Details Action, by default it opens a sidebar with card details
+     * You can modify its behavior by editting this function
      */
     actionDetails (e) {
-      const item = e.item;
-      
+      const currentCard = e.item;
       let comp = document.createElement('COMP-SIDEBAR');
+
       document.body.append(comp);
-      riot.mount(comp, item);
+      riot.mount(comp, currentCard);
     }
   </script>
 </comp-cards>
