@@ -1,10 +1,11 @@
 [
   {
-    "name":"Project 1",
+    "name":"Super mothafucka 1",
     "description":"This is a project talking about some cool stuff, like in koolaid.",
     "descriptionFull":"This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid. This is a project talking about some cool stuff, like in koolaid.",
     "imageUrl":"",
-    "link":"http://google.com/"
+    "link":"http://google.com/",
+    "tags": ["wewe", "riri", "tutu", "yoyo", "bubu", "cece"]
   },
   {
     "name":"Project 2",

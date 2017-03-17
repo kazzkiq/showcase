@@ -5,4 +5,14 @@
     <h2>You can check some examples of showcases in our showcase bellow. Pretty Inception, <em>eh</em>?</h2>
   </div>
   <comp-cards></comp-cards>
+
+  <script>
+    this.on('mount', () => {
+      this.setTitle(this.opts.showcaseName);
+    });
+
+    setTitle (name) {
+      document.title = name || 'Showcase';
+    }
+  </script>
 </comp-main>

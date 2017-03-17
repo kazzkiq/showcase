@@ -1,6 +1,6 @@
 <comp-search>
   <div class="SearchComp">
-    <input type="text" placeholder="Search..." oninput="{ filter }">
+    <input type="text" placeholder="{ parent.parent.opts.searchLabel || 'Search...' }" oninput="{ filter }">
   </div>
 
   <script>

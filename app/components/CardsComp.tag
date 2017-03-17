@@ -12,10 +12,10 @@
           <hr>
           <div class="action-buttons">
             <div class="btn">
-              Visit Project
+              { cardLabels.mainButton }
             </div>
             <div class="btn outline" onclick="{ actionDetails }">
-              See Details
+              { cardLabels.detailsButton || 'See Details' }
             </div>
           </div>
         </div>
@@ -26,6 +26,7 @@
     this.cards = [];
     this.displayCards = [];
     this.isFilterActive = true;
+    this.cardLabels = this.parent.opts.cardLabels[0];
 
     this.on('mount', () => {
       this.fetchCardsData();

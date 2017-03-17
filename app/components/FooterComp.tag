@@ -6,9 +6,7 @@
       </div>
       <nav class="menu">
         <ul>
-          <li><a href="https://github.com/kazzkiq/showcase">Github Project</a></li>
-          <li><a href="https://github.com/kazzkiq/showcase/wiki">Documentation</a></li>
-          <li><a href="https://github.com/kazzkiq/showcase/graphs/contributors">Author</a></li>
+          <li each="{ link in opts }"><a href="{ link.url }">{ link.title }</a></li>
         </ul>
       </nav>
     </div>
